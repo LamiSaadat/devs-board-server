@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile").development);
 
+//get all boards
 exports.index = (_req, res) => {
   knex("board")
     .then((data) => {
@@ -10,6 +11,7 @@ exports.index = (_req, res) => {
     });
 };
 
+//get a single board
 exports.singleBoard = (req, res) => {
   knex("board")
     .where({ id: req.params.id })

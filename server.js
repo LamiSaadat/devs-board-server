@@ -7,9 +7,12 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 
 const boardsRoutes = require("./routes/boardsRoutes");
+const palettesRoutes = require("./routes/palettesRoutes");
+const imagesRoutes = require("./routes/imagesRoutes");
 
-//all boards route
 app.use("/boards", boardsRoutes);
+app.use("/palettes", palettesRoutes);
+app.use("/images", imagesRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀Listening on port ${PORT}`);
