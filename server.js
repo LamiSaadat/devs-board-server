@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express();
-const PORT = 8080;
 const cors = require("cors");
-
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Server is working");
-});
+require("dotenv").config();
+const PORT = process.env.PORT || 8080;
+
+const boardsRoutes = require("./routes/boardsRoutes");
+
+//all boards route
+app.use("/boards", boardsRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+  console.log(`🚀Listening on port ${PORT}`);
 });
