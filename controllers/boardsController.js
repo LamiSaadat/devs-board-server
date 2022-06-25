@@ -27,3 +27,38 @@ exports.singleBoard = (req, res) => {
       res.status(400).send(`Error retrieving board: ${err}`);
     });
 };
+
+exports.addBoard = (req, res) => {
+  knex("board")
+    .insert(req.body)
+    .then((data) => {
+      const newBoardURL = `boards/${data[0]}`;
+      res.status(200).location(newBoardURL).send(newBoardURL);
+    })
+    .catch((err) => {
+      res.status(400).send(`Error creating Boards: ${err}`);
+    });
+};
+
+exports.deleteBoard = (req, res) => {
+  knex("board")
+    .delete()
+    .where({ id: req.params.id })
+    .then(() => {
+      res.status(204).send(`Board with id:${req.params.id} has been deleted.`);
+    })
+    .catch((err) => {
+      res
+        .status(400)
+        .send(`Error deleting board with id:${req.params.id}: ${err}`);
+    });
+};
+
+exports.boardPalette = (req, res) => {
+  knex("palette")
+    .where({ board_id: req.params.id })
+    .then((data) => {
+      console.log("board palette:", data);
+      res.status(200).json(data);
+    });
+};
