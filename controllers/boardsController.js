@@ -62,3 +62,7 @@ exports.boardPalette = (req, res) => {
       res.status(200).json(data);
     });
 };
+
+exports.boardImages = (req, res) => {
+  knex("images")
+}
