@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "keyword": "power",
+    "colorName": "red",
+    "colorHex": "FF0000"
+  },
+  {
+    "id": 2,
+    "keyword": "energy",
+    "colorName": "red",
+    "colorHex": "FF0000"
+  },
+  {
+    "id": 3,
+    "keyword": "playful",
+    "colorName": "orange",
+    "colorHex": "FFA500"
+  },
+  {
+    "id": 4,
+    "keyword": "friendly",
+    "colorName": "yellow",
+    "colorHex": "FFFF00"
+  },
+  {
+    "id": 5,
+    "keyword": "cheerful",
+    "colorName": "yellow",
+    "colorHex": "FFFF00"
+  },
+  {
+    "id": 6,
+    "keyword": "confidence",
+    "colorName": "orange",
+    "colorHex": "FFA500"
+  },
+  {
+    "id": 7,
+    "keyword": "creative",
+    "colorName": "purple",
+    "colorHex": "800080"
+  },
+  {
+    "id": 8,
+    "keyword": "nature",
+    "colorName": "green",
+    "colorHex": "00FF00"
+  },
+  {
+    "id": 9,
+    "keyword": "fresh",
+    "colorName": "green",
+    "colorHex": "00FF00"
+  },
+  {
+    "id": 10,
+    "keyword": "trust",
+    "colorName": "blue",
+    "colorHex": "0000FF"
+  },
+  {
+    "id": 11,
+    "keyword": "sophisticated",
+    "colorName": "black",
+    "colorHex": "000000"
+  },
+  {
+    "id": 12,
+    "keyword": "earthy",
+    "colorName": "brown",
+    "colorHex": "964B00"
+  },
+  {
+    "id": 13,
+    "keyword": "classic",
+    "colorName": "black",
+    "colorHex": "000000"
+  },
+  {
+    "id": 14,
+    "keyword": "clean",
+    "colorName": "white",
+    "colorHex": "FFFFFF"
+  },
+  {
+    "id": 15,
+    "keyword": "warm",
+    "colorName": "brown",
+    "colorHex": "964B00"
+  }
+]
