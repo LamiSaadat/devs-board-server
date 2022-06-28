@@ -16,22 +16,29 @@ const getColorKeywordData = () => {
   return JSON.parse(fs.readFileSync(basecolorsKeywordFilePath));
 };
 
+exports.recieveKeyword = (req, res) => {};
+
 exports.generatePalette = (req, res) => {
   //get keyword from front end
-  let requestedKeyword = "classic";
+  let requestedKeyword = req.params.keyword;
+  console.log(requestedKeyword);
   //go to colors_keywords database
   let lookupFile = getColorKeywordData();
   //match keyword to color
-  const foundBaseColor = lookupFile.map((listItem) => {
+  const foundBaseColor = lookupFile.find((listItem) => {
     if (listItem.keyword === requestedKeyword) {
+      console.log(listItem.colorHex);
       return listItem.colorHex;
     }
   });
+  console.log(foundBaseColor.colorHex);
   //bring back base color
   // let baseColor = req.body;
   //send base color to external api to bring back color palette
   axios
-    .get(`https://www.thecolorapi.com/scheme?hex=${foundBaseColor}&count=5`)
+    .get(
+      `https://www.thecolorapi.com/scheme?hex=${foundBaseColor.colorHex}&count=5`
+    )
     .then((response) => {
       // let colorPalette = response.data.colors.map((color) => color.hex.value);
       let colorPalette = response.data.colors.map((color) => {
