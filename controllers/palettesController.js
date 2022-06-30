@@ -59,10 +59,9 @@ exports.generatePalette = (req, res) => {
 
 exports.addPalette = (req, res) => {
   knex("palette")
-    .insert(req.bod)
+    .insert(req.body)
     .then((data) => {
-      const newPaletteURL = `palettes/${data[0]}`;
-      res.status(200).location(newPaletteURL).send(newPaletteURL);
+      res.status(201).json({ id: data[0] });
     })
     .catch((err) => {
       res.status(400).send(`Error creating Palettes: ${err}`);
