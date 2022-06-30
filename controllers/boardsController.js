@@ -32,6 +32,7 @@ exports.addBoard = (req, res) => {
   knex("board")
     .insert(req.body)
     .then((data) => {
+      console.log(req.body);
       const newBoardURL = `boards/${data[0]}`;
       res.status(200).location(newBoardURL).send(newBoardURL);
     })
@@ -64,5 +65,5 @@ exports.boardPalette = (req, res) => {
 };
 
 exports.boardImages = (req, res) => {
-  knex("images")
-}
+  knex("images");
+};

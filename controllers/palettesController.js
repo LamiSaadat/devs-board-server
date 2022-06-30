@@ -16,8 +16,6 @@ const getColorKeywordData = () => {
   return JSON.parse(fs.readFileSync(basecolorsKeywordFilePath));
 };
 
-exports.recieveKeyword = (req, res) => {};
-
 exports.generatePalette = (req, res) => {
   //get keyword from front end
   let requestedKeyword = req.params.keyword;
@@ -32,15 +30,12 @@ exports.generatePalette = (req, res) => {
     }
   });
   console.log(foundBaseColor.colorHex);
-  //bring back base color
-  // let baseColor = req.body;
-  //send base color to external api to bring back color palette
+
   axios
     .get(
       `https://www.thecolorapi.com/scheme?hex=${foundBaseColor.colorHex}&count=5`
     )
     .then((response) => {
-      // let colorPalette = response.data.colors.map((color) => color.hex.value);
       let colorPalette = response.data.colors.map((color) => {
         return {
           color: color.hex,
@@ -59,5 +54,17 @@ exports.generatePalette = (req, res) => {
     // })
     .catch((err) => {
       res.status(400).send(`Error retrieving color palette: ${err}`);
+    });
+};
+
+exports.addPalette = (req, res) => {
+  knex("palette")
+    .insert(req.bod)
+    .then((data) => {
+      const newPaletteURL = `palettes/${data[0]}`;
+      res.status(200).location(newPaletteURL).send(newPaletteURL);
+    })
+    .catch((err) => {
+      res.status(400).send(`Error creating Palettes: ${err}`);
     });
 };

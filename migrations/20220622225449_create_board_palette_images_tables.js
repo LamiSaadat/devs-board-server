@@ -18,7 +18,6 @@ exports.up = function (knex) {
       table
         .integer("board_id")
         .unsigned()
-        .notNullable()
         .references("id")
         .inTable("board")
         .onUpdate("CASCADE")
