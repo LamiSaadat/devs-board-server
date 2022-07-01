@@ -3,15 +3,6 @@ const axios = require("axios");
 const fs = require("fs");
 const basecolorsKeywordFilePath = "./data/basecolors_keywords.json";
 
-// exports.getPalette = (_req, res) => {
-//   knex("palette")
-//     .then((data) => {
-//       res.status(200).json(data);
-//     })
-//     .catch((err) => {
-//       res.status(400).send(`Error retrieving Palettes: ${err}`);
-//     });
-// };
 const getColorKeywordData = () => {
   return JSON.parse(fs.readFileSync(basecolorsKeywordFilePath));
 };
@@ -42,16 +33,8 @@ exports.generatePalette = (req, res) => {
         };
       });
 
-      // return colorPalette;
       res.json(colorPalette);
     })
-    // .then((colorPalette) => {
-    //   knex("palette")
-    //     .insert(colorPalette)
-    //     .then((data) => {
-    //       res.send(data);
-    //     });
-    // })
     .catch((err) => {
       res.status(400).send(`Error retrieving color palette: ${err}`);
     });

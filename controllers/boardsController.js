@@ -1,19 +1,7 @@
 const knex = require("knex")(require("../knexfile").development);
-// const fs = require("fs");
-// const path = require("path");
-
-// const boardsData = "../data/boards.json";
-
-// const getBoardsData = () => {
-//   return JSON.parse(fs.readFileSync(path.resolve(__dirname, boardsData)));
-// };
 
 //get all boards
 exports.allBoards = (_req, res) => {
-  let getBoards = getBoardsData();
-  console.log(getBoards);
-
-  res.status(200).json(getBoards);
   knex("board")
     .then((data) => {
       res.status(200).json(data);
@@ -25,15 +13,6 @@ exports.allBoards = (_req, res) => {
 
 //get a single board
 exports.singleBoard = (req, res) => {
-  // let getBoards = getBoardsData();
-
-  // //filter by id
-  // let board = getBoards.find((board) => {
-  //   return board.id === req.params.id;
-  // });
-  // console.log(board);
-
-  // res.status(200).json(board);
   knex("board")
     .where({ id: req.params.id })
     .then((data) => {
