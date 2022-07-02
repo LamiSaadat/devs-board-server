@@ -12,5 +12,6 @@ router
   .delete(boardsController.deleteBoard);
 
 router.route("/:id/palette").get(boardsController.boardPalette);
+router.route("/:id/images").get(boardsController.boardImages);
 
 module.exports = router;

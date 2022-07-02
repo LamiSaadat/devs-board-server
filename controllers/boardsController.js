@@ -61,6 +61,11 @@ exports.boardPalette = (req, res) => {
     });
 };
 
-// exports.boardImages = (req, res) => {
-//   knex("images");
-// };
+exports.boardImages = (req, res) => {
+  knex("images")
+    .where({ board_id: req.params.id })
+    .then((data) => {
+      console.log("board images:", data);
+      res.status(200).json(data);
+    });
+};

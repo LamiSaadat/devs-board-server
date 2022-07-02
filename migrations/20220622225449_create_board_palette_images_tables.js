@@ -25,20 +25,19 @@ exports.up = function (knex) {
     })
     .createTable("images", (table) => {
       table.increments("id").primary();
-      table.string("image1").notNullable();
-      table.string("image2").notNullable();
-      table.string("image3").notNullable();
-      table.string("image4").notNullable();
-      table.string("image5").notNullable();
-      table.string("image6").notNullable();
-      table.string("image7").notNullable();
-      table.string("image8").notNullable();
-      table.string("image9").notNullable();
-      table.string("image10").notNullable();
+      table.string("image1");
+      table.string("image2");
+      table.string("image3");
+      table.string("image4");
+      table.string("image5");
+      table.string("image6");
+      table.string("image7");
+      table.string("image8");
+      table.string("image9");
+      table.string("image10");
       table
         .integer("board_id")
         .unsigned()
-        .notNullable()
         .references("id")
         .inTable("board")
         .onUpdate("CASCADE")
