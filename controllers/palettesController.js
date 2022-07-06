@@ -7,6 +7,7 @@ const getColorKeywordData = () => {
   return JSON.parse(fs.readFileSync(basecolorsKeywordFilePath));
 };
 
+//generate a palette
 exports.generatePalette = (req, res) => {
   //get keyword from front end
   let requestedKeyword = req.params.keyword;
@@ -40,6 +41,7 @@ exports.generatePalette = (req, res) => {
     });
 };
 
+//create a palette
 exports.addPalette = (req, res) => {
   knex("palette")
     .insert(req.body)

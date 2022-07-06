@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile").development);
 
+//add images
 exports.addImages = (req, res) => {
   knex("images")
     .insert(req.body)

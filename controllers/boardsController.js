@@ -27,6 +27,7 @@ exports.singleBoard = (req, res) => {
     });
 };
 
+//add a board
 exports.addBoard = (req, res) => {
   knex("board")
     .insert(req.body)
@@ -38,6 +39,7 @@ exports.addBoard = (req, res) => {
     });
 };
 
+//delete a board
 exports.deleteBoard = (req, res) => {
   knex("board")
     .delete()
@@ -52,20 +54,20 @@ exports.deleteBoard = (req, res) => {
     });
 };
 
+//get board palette
 exports.boardPalette = (req, res) => {
   knex("palette")
     .where({ board_id: req.params.id })
     .then((data) => {
-      console.log("board palette:", data);
       res.status(200).json(data);
     });
 };
 
+//get board images
 exports.boardImages = (req, res) => {
   knex("images")
     .where({ board_id: req.params.id })
     .then((data) => {
-      console.log("board images:", data);
       res.status(200).json(data);
     });
 };
