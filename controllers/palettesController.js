@@ -24,7 +24,7 @@ exports.generatePalette = (req, res) => {
 
   axios
     .get(
-      `https://www.thecolorapi.com/scheme?hex=${foundBaseColor.colorHex}&count=5`
+      `https://www.thecolorapi.com/scheme?hex=${foundBaseColor.colorHex}&count=5&mode=analogic`
     )
     .then((response) => {
       let colorPalette = response.data.colors.map((color) => {
