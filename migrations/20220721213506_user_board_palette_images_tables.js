@@ -4,9 +4,22 @@
  */
 exports.up = function (knex) {
   return knex.schema
+    .createTable("user", (table) => {
+      table.increments("id").primary();
+      table.string("name").notNullable();
+      table.string("username").notNullable();
+      table.string("password").notNullable();
+    })
     .createTable("board", (table) => {
       table.increments("id").primary();
       table.string("name").notNullable();
+      table
+        .integer("user_id")
+        .unsigned()
+        .references("id")
+        .inTable("user")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
     })
     .createTable("palette", (table) => {
       table.increments("id").primary();
@@ -53,5 +66,6 @@ exports.down = function (knex) {
   return knex.schema
     .dropTable("images")
     .dropTable("palette")
-    .dropTable("board");
+    .dropTable("board")
+    .dropTable("user");
 };

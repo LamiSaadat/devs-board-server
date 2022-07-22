@@ -8,10 +8,12 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 8080;
 
+const usersRoutes = require("./routes/usersRoutes");
 const boardsRoutes = require("./routes/boardsRoutes");
 const palettesRoutes = require("./routes/palettesRoutes");
 const imagesRoutes = require("./routes/imagesRoutes");
 
+app.use("/users", usersRoutes);
 app.use("/boards", boardsRoutes);
 app.use("/palettes", palettesRoutes);
 app.use("/images", imagesRoutes);

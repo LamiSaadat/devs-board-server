@@ -6,10 +6,17 @@
 const boardData = require("../seed_data/board");
 const paletteData = require("../seed_data/palette");
 const imagesData = require("../seed_data/images");
+const userData = require("../seed_data/user");
 
 exports.seed = function (knex) {
-  return knex("board")
+  return knex("user")
     .del()
+    .then(() => {
+      return knex("user").insert(userData);
+    })
+    .then(() => {
+      return knex("board").del();
+    })
     .then(() => {
       return knex("board").insert(boardData);
     })
