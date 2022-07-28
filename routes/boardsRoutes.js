@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const boardsController = require("../controllers/boardsController");
+const authController = require("../controllers/authController");
 
 router
   .route("/")
-  .get(boardsController.allBoards)
+  // .get(authController.authorize, boardsController.allBoards)
+  .get(authController.authorize, boardsController.allBoards)
   .post(boardsController.addBoard);
 
 router
