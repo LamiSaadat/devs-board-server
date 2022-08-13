@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const connections = {
+module.exports = {
   development: {
     client: "mysql",
     connection: {
@@ -11,14 +11,4 @@ const connections = {
       charset: "utf8",
     },
   },
-
-  productions: {
-    client: "mysql",
-    connection: process.env.NODE_ENV,
-  },
 };
-
-module.exports =
-  process.env.NODE_ENV === "production"
-    ? connections.production
-    : connections.development;
