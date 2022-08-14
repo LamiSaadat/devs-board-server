@@ -9,7 +9,7 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "name": "devs-board-server",
   "version": "1.0.0",
