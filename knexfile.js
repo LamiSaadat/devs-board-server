@@ -9,7 +9,7 @@ require("dotenv").config();
 
 const connections = {
   development: {
-    client: process.env.CLIENT,
+    client: "mysql",
     connection: {
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
@@ -19,7 +19,7 @@ const connections = {
     },
   },
   production: {
-    client: process.env.CLIENT,
+    client: "mysql",
     connection: process.env.JAWSDB_URL,
   },
 };
