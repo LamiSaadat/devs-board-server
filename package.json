@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js",
     "migrate": "knex migrate:latest",
     "migrate:down": "knex migrate:down",
     "migrate:rollback": "knex migrate:rollback",
