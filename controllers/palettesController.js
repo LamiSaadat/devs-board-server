@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile").development);
+const knex = require("knex")(require("../knexfile"));
 const axios = require("axios");
 const fs = require("fs");
 const basecolorsKeywordFilePath = "./data/basecolors_keywords.json";
