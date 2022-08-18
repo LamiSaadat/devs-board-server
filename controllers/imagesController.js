@@ -1,4 +1,4 @@
-const knex = require("knex")(require("../knexfile").development);
+const knex = require("knex")(require("../knexfile"));
 
 //add images
 exports.addImages = (req, res) => {
