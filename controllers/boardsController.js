@@ -56,7 +56,6 @@ exports.boardPalette = (req, res) => {
   knex("palette")
     .where({ board_id: req.params.id })
     .then((data) => {
-      console.log("board palette:", data);
       res.status(200).json(data);
     });
 };
@@ -65,7 +64,6 @@ exports.boardImages = (req, res) => {
   knex("images")
     .where({ board_id: req.params.id })
     .then((data) => {
-      console.log("board images:", data);
       res.status(200).json(data);
     });
 };

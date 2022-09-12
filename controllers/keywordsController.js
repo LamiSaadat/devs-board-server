@@ -9,6 +9,5 @@ const getColorKeywordData = () => {
 exports.getKeywords = (req, res) => {
   let lookUpFile = getColorKeywordData();
   const keywordArr = lookUpFile.map((obj) => obj.keyword);
-  console.log(keywordArr);
   res.status(200).json(keywordArr);
 };
