@@ -11,17 +11,12 @@ const getColorKeywordData = () => {
 exports.generatePalette = (req, res) => {
   //get keyword from front end
   let requestedKeyword = req.params.keyword;
-  console.log(requestedKeyword);
   //go to colors_keywords database
   let lookupFile = getColorKeywordData();
   //match keyword to color
   const foundBaseColor = lookupFile.find((listItem) => {
-    if (listItem.keyword === requestedKeyword) {
-      console.log(listItem.colorHex);
-      return listItem.colorHex;
-    }
+    if (listItem.keyword === requestedKeyword) return listItem.colorHex;
   });
-  console.log(foundBaseColor.colorHex);
 
   axios
     .get(
