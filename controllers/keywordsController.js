@@ -1,7 +1,14 @@
 const fs = require("fs");
-const keywordsFilePath = "./data/keywords.json";
+const basecolorsKeywordFilePath = "./data/basecolors_keywords.json";
 
 //Read the json file for keywords
-exports.getKeywords = () => {
-  return JSON.parse(fs.readFileSync(keywordsFilePath));
+const getColorKeywordData = () => {
+  return JSON.parse(fs.readFileSync(basecolorsKeywordFilePath));
+};
+
+exports.getKeywords = (req, res) => {
+  let lookUpFile = getColorKeywordData();
+  const keywordArr = lookUpFile.map((obj) => obj.keyword);
+  console.log(keywordArr);
+  res.status(200).json(keywordArr);
 };
