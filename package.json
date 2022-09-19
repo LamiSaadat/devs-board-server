@@ -6,9 +6,7 @@
     "express": "^4.18.1",
     "knex": "^2.1.0",
     "mysql": "^2.18.1",
-    "netlify-cli": "^11.7.1",
-    "nodemon": "^2.0.16",
-    "serverless-http": "^3.0.2"
+    "nodemon": "^2.0.16"
   },
   "scripts": {
     "start": "node server.js",
@@ -16,8 +14,7 @@
     "migrate": "knex migrate:latest",
     "migrate:down": "knex migrate:down",
     "migrate:rollback": "knex migrate:rollback",
-    "seed": "knex seed:run",
-    "build": "netlify deploy --prod"
+    "seed": "knex seed:run"
   },
   "name": "devs-board-server",
   "version": "1.0.0",

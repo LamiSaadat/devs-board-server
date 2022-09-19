@@ -1,5 +1,4 @@
 const express = require("express");
-const serverless = require("serverless-http");
 const app = express();
 const cors = require("cors");
 
@@ -22,5 +21,3 @@ app.use("/keywords", keywordsRoutes);
 app.listen(PORT, () => {
   console.log(`🚀Listening on port ${PORT}`);
 });
-
-module.exports.handler = serverless(app);
