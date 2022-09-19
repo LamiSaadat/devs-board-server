@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: "./.env" });
 
 const connections = {
   development: {
@@ -13,7 +13,6 @@ const connections = {
   },
   production: {
     client: "mysql",
-    connection: process.env.JAWSDB_URL,
   },
 };
 
